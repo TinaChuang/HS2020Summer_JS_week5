@@ -5,10 +5,16 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 // Import component
 import Loading from 'vue-loading-overlay'
-// Import stylesheet
 import 'vue-loading-overlay/dist/vue-loading.css'
 
+import $ from 'jquery'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+
 Vue.config.productionTip = false
+
+// 在 window 的全域下，新增一個變數 $ 為套件的 $
+window.$ = $
 
 // 元件，全域註冊
 Vue.component('Loading', Loading)

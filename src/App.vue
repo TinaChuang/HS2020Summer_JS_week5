@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <loading :active.sync="isLoading"></loading>
-    <div id="nav">
+    <div class="py-4 text-center h2">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">表單驗證</router-link>
     </div>
     <router-view/>
   </div>
@@ -18,7 +18,7 @@ export default {
   },
   mounted () {
     this.$http
-      .get('https://course-ec-api.hexschool.io/api/e3cf317a-b68f-4629-9716-f0f4ec843e36/ec/products')
+      .get(`${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/products`)
       .then(res => {
         this.isLoading = false
         console.log(res)
@@ -30,24 +30,24 @@ export default {
 }
 </script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+// #app {
+//   font-family: Avenir, Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+// }
 
-#nav {
-  padding: 30px;
+// #nav {
+//   padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
 </style>
